@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.eight.memory_garden.core.annotation.UserId;
 import com.eight.memory_garden.core.annotation.UserRole;
-import com.eight.memory_garden.core.response.ApiResponse;
-import com.eight.memory_garden.domain.user.Role;
+import com.eight.memory_garden.core.security.Role;
+import com.eight.memory_garden.common.response.ApiResponse;
 
 @RestController
 @RequestMapping("/gardener")
