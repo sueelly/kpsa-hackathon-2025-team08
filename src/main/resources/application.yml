@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: memory-garden
+
+  datasource:
+    url: ENC(Afo/suTwZXxgfjP++NWq/qi+IvazTtZJIrDovW/hXrbLI6qcFeh48HR4FoE0htqd0P92BzlV1blcf+ilomj8lmCWjCfclr1Yk7BoFScnJYYqe0xHJJJRDnlGVmGA+v+r/p8oUr1HnfRbUNf/k+B9Vb9nc3/jNOUeioyy1NtH3/V9rKt64R/YWY6+H+OyI60hc7Nt3bEw5Qrb8HBA5mI6wTUHSf7zfcLxC2pozFypVWZtGTKUO9N7Z67OL60qcM77)
+    username: ENC(YZPqeYfkm6mk9geDZHIC0gN1g5hQD+BHbTmmH4aItgoktsC+jdtpEhjEEzjEBco1)
+    password: ENC(oeL+HG59LDXSyf4WEalddqe11fqccA5aGvrmi4ZwBLpWn0ti2TvrqUtnjZi73sNJ)
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
+server:
+  port: 8080
+
+jwt:
+  secretKey: ENC(SDe/rlTr9bKk3g5Qi2Q5FTHfleYumpoDc26J92h3MIpzIRIMvqxDqzLmEu3bgtZ/DcdgbU2v/8ftiguDed8MMh+KzGxAbstErq4j4hRy23FqFCW6i9gb5kVxkuIhpeSq)
+  accessTokenExpirationMs: 36000000 # 10 hours
+  refreshTokenExpirationMs: 86400000 # 24 hours
+
+cloud:
+  aws:
+    credentials:
+      access-key: ENC(Gk/eYP1cTsj9w2R3+ZbnI7QvYT5KmUaMwNyO53gHVXazBR4mG6tdKdswgsH0zw+C96CrqER7ToaL+xuXqlQZ0g==)      
+      secret-key: ENC(Ttq1RyYI6IXyqreLiupaSiMJhwtze+L2U0saTLMmSDXJpX+h6NX/pmTyW9NhajUp3M/JOQvENZXSZBSozbAP7PI3T6RZdstA4fphODAdLfI=)   
+    region:
+      static: ap-northeast-2
+    s3:
+      bucket: memory-garden
+
+jasypt:
+  encryptor:
+    password: memory-garden-secret-key
+    provider-name: SunJCE
+    algorithm: PBEWITHHMACSHA512ANDAES_256
+    key-obtention-iterations: 1000
+    pool-size: 1
+    salt-generator-classname: org.jasypt.salt.RandomSaltGenerator
+    iv-generator-classname: org.jasypt.iv.RandomIvGenerator
+    string-output-type: base64
