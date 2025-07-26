@@ -16,6 +16,14 @@ jobs:
           username: ec2-user
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            cd /home/ec2-user
-            chmod +x ./deploy.sh
-            ./deploy.sh
+            cd /home/ec2-user/kpsa-hackathon-2025-team08 || exit
+
+            echo ">> Pulling latest code"
+            git pull origin backend
+
+            echo ">> Building Docker image"
+            docker build -t memory-garden backend/
+
+            echo ">> Restarting container"
+            docker rm -f $(docker ps -aq) || true
+            docker run -d -p 80:8080 --name memory-garden-container memory-garden
