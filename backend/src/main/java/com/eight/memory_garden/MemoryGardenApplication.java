@@ -9,5 +9,4 @@ public class MemoryGardenApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MemoryGardenApplication.class, args);
 	}
-
 }

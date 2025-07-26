@@ -19,7 +19,7 @@ public class SecurityConstants {
         "/webjars/**"
     );
 
-    // PATIENT 또는 NEXT_OF_KIN 권한 허용 - GET 요청만
+    // PATIENT 또는 NEXT_OF_KIN 권한 허용 - 모든 메서드
     public static final List<String> PATIENT_OR_NEXT_OF_KIN_GET_URLS = List.of(
     );
 
@@ -29,6 +29,7 @@ public class SecurityConstants {
 
     // PATIENT 권한만 허용 - 모든 메서드
     public static final List<String> PATIENT_URLS = List.of(
+        "/gardener/**"
     );
 
     // PHARMACIST 권한만 허용 - 모든 메서드

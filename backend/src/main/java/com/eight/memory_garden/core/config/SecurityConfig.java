@@ -49,7 +49,7 @@ public class SecurityConfig {
                 .requestMatchers(SecurityConstants.PUBLIC_URLS.toArray(String[]::new)).permitAll()
                 
                 // PATIENT 또는 NEXT_OF_KIN 권한
-                .requestMatchers(HttpMethod.GET, SecurityConstants.PATIENT_OR_NEXT_OF_KIN_GET_URLS.toArray(String[]::new))
+                .requestMatchers(SecurityConstants.PATIENT_OR_NEXT_OF_KIN_GET_URLS.toArray(String[]::new))
                     .hasAnyRole(Role.PATIENT.name(), Role.NEXT_OF_KIN.name())
 
                 // NEXT_OF_KIN 권한
