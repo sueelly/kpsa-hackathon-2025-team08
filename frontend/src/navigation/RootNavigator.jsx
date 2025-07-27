@@ -1,10 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useUser } from '../contexts/UserContext';
+
 import Main from '../pages/Main';
 import Profile from '../pages/Profile';
 import Login from '../pages/Login';
 import Home from '../pages/home/Home';
+import Chat from '../pages/Chat';
 
 const RootNavigator = () => {
   const { user } = useUser();
@@ -18,6 +20,7 @@ const RootNavigator = () => {
             <Route path="/" element={<Main />} />
             <Route path="/home" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/chat" element={<Chat />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </>
         ) : (
